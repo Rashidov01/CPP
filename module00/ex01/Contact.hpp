@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:59:07 by arashido          #+#    #+#             */
-/*   Updated: 2023/12/23 15:15:59 by arashido         ###   ########.fr       */
+/*   Updated: 2023/12/24 09:44:32 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <cstdlib>
 
 class Contact
 {

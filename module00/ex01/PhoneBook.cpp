@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:43:25 by arashido          #+#    #+#             */
-/*   Updated: 2023/12/06 15:58:28 by arashido         ###   ########.fr       */
+/*   Updated: 2023/12/24 09:44:48 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ void PhoneBook::addContact(Contact contact)
 
 void PhoneBook::printContacts(void)
 {
-	int	i;
-
-	i = 0;
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	std::cout << "|   Index  |First Name| Last Name| Nickname |" << std::endl;
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
