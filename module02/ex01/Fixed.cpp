@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 14:01:56 by arashido          #+#    #+#             */
-/*   Updated: 2023/12/27 17:33:47 by arashido         ###   ########.fr       */
+/*   Updated: 2023/12/28 20:08:51 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,10 @@ Fixed::Fixed(const float n) : _fixed(roundf(n * (1 << _bits)))
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed &Fixed::operator=(const Fixed &fixed)
+Fixed &Fixed::operator=(const Fixed &rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &fixed)
-		this->_fixed = fixed.getRawBits();
+	if (this != &rhs)
+		this->_fixed = rhs.getRawBits();
 	return (*this);
 }
 
@@ -56,8 +55,6 @@ void Fixed::setRawBits(int const raw)
 	this->_fixed = raw;
 }
 
-// ***************** ex01 ***************** //
-
 std::ostream &operator<<(std::ostream &COUT, Fixed const &fixed)
 {
 	COUT << fixed.toFloat();
@@ -66,7 +63,7 @@ std::ostream &operator<<(std::ostream &COUT, Fixed const &fixed)
 
 float Fixed::toFloat() const
 {
-	return (roundf(this->_fixed) / (1 << this->_bits));
+	return (((float)this->_fixed) / (1 << this->_bits));
 }
 
 int Fixed::toInt() const
