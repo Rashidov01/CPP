@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 17:46:26 by arashido          #+#    #+#             */
-/*   Updated: 2023/12/30 09:27:31 by arashido         ###   ########.fr       */
+/*   Created: 2023/12/29 16:25:19 by arashido          #+#    #+#             */
+/*   Updated: 2023/12/29 16:31:05 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
-int	main(void)
+ClapTrap::ClapTrap() : _hitPoint(10), _energyPoint(10), _attackDemage(10)
 {
-	Fixed a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
-	return (0);
+	std::cout << "Constructor called" << std::endl;
+}
+
+ClapTrap::~ClapTrap()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+void ClapTrap::attack(const std::string &target)
+{
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
 }
