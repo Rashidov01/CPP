@@ -6,29 +6,33 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 16:20:04 by arashido          #+#    #+#             */
-/*   Updated: 2023/12/29 16:31:13 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/02 14:15:41 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAP_TRAP_HPP
-# define CLAP_TRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
-# include <string>
 
 class ClapTrap
 {
   private:
-	int _hitPoint;
-	int _energyPoint;
-	int _attackDemage;
+	std::string _name;
+	unsigned int _hitPoints;
+	unsigned int _energyPoints;
+	unsigned int _attackDamage;
 
   public:
-	ClapTrap();
+	ClapTrap(std::string name);
 	~ClapTrap();
-	void attack(const std::string &target);
+
+	ClapTrap(const ClapTrap &);
+	ClapTrap &operator=(const ClapTrap &object);
+	void attack(std::string const &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };
+	void printMessage(const std::string &message, int colorCode = 0);
 
 #endif
