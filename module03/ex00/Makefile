@@ -6,7 +6,7 @@
 #    By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/29 16:28:33 by arashido          #+#    #+#              #
-#    Updated: 2024/01/02 15:52:09 by arashido         ###   ########.fr        #
+#    Updated: 2024/01/02 18:44:30 by arashido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,11 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@printf "$(GREEN)$(NAME)$(RESET)$(YELLOW) is ready to use!$(RESET)\n"
 
 %.o: %.cpp
-	@$(CXX) $(FLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 	@printf "$(GRAY)Compiled $< into $@$(RESET)\n"
 
 clean:

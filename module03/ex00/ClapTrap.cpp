@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 16:25:19 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/02 17:56:21 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/02 20:08:19 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	printMessage(const std::string &message, int colorCode)
 {
 	std::string colorStart = "\033[0;";
 	std::string colorEnd = "\033[0m";
-	// 31:red; 32:green; 33:yellow; 34:blue; 35:meganta; 36:cyan; 37:white
+	// COLORS: 31red; 32green; 33yellow; 34blue; 35meganta; 36cyan; 37white
 	std::cout	<< colorStart
 				<< colorCode
 				<< "m"
@@ -75,7 +75,7 @@ void ClapTrap::attack(std::string const &target)
 	if (_energyPoints <= 0)
 		printMessage("ClapTrap" + _name + " is out of energy", 90);
 	printMessage("ClapTrap " + _name + " attacks " + target + ", causing " + intToString(_attackDamage) + " points of demage!", 90);
-	_energyPoints += 1;
+	_energyPoints -= 1;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -102,7 +102,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	if (_energyPoints <= 0)
 		printMessage("ClapTrap " + _name + " is out of energy!", 90);
 	printMessage("ClapTrap " + _name + " repairs itself for " + intToString(amount) + " hit points!", 32);
-	_energyPoints += 1;
+	_energyPoints -= 1;
 	_hitPoints += amount;
 	printMessage("ClapTrap now has " + intToString(this->_hitPoints) + " hit points!", 32);
 }
