@@ -6,12 +6,12 @@
 #    By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 15:12:47 by arashido          #+#    #+#              #
-#    Updated: 2023/12/23 15:12:50 by arashido         ###   ########.fr        #
+#    Updated: 2024/01/02 18:44:10 by arashido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = main
 
@@ -27,11 +27,11 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@printf "$(GREEN)$(NAME)$(RESET)$(YELLOW) is ready to use!$(RESET)\n"
 
 %.o: %.cpp
-	@$(CXX) $(FLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 	@printf "$(GRAY)Compiled $< into $@$(RESET)\n"
 
 clean:
