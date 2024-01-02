@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 16:25:19 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/02 15:29:30 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/02 15:37:51 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	printMessage(const std::string &message, int colorCode)
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
+	printMessage("EnergyPoints: " + std::to_string(this->_energyPoints), 32);
+	printMessage("HitPoints: " + std::to_string(this->_hitPoints), 32);
 	printMessage("ClapTrap " + _name + " is born!", 32);
 }
 
