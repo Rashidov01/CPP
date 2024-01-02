@@ -6,14 +6,14 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 16:20:04 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/02 14:15:41 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/02 16:06:05 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-# include <iostream>
+# include <string>
 
 class ClapTrap
 {
@@ -24,15 +24,17 @@ class ClapTrap
 	unsigned int _attackDamage;
 
   public:
-	ClapTrap(std::string name);
-	~ClapTrap();
-
+	ClapTrap(void);
+	~ClapTrap(void);
 	ClapTrap(const ClapTrap &);
 	ClapTrap &operator=(const ClapTrap &object);
+
+	ClapTrap(std::string name);
 	void attack(std::string const &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };
-	void printMessage(const std::string &message, int colorCode = 0);
+
+void	printMessage(const std::string &message, int colorCode = 0);
 
 #endif

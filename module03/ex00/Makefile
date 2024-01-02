@@ -6,12 +6,12 @@
 #    By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/29 16:28:33 by arashido          #+#    #+#              #
-#    Updated: 2023/12/29 16:28:43 by arashido         ###   ########.fr        #
+#    Updated: 2024/01/02 15:52:09 by arashido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = main
 
