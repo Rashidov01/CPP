@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 16:28:55 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/02 15:30:32 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:12:47 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,40 @@
 
 int	main(void)
 {
-	ClapTrap mod3("Gladiator");
-	mod3.attack("Enemy 1");
+	ClapTrap test("Gladiator");
+	test.attack("Enemy 1");
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.attack("Enemy 2");
+	test.attack("Enemy 2");
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.takeDamage(3);
+	test.takeDamage(3);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.attack("Enemy 3");
+	test.attack("Enemy 3");
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.takeDamage(2);
+	test.takeDamage(2);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.beRepaired(5);
+	test.beRepaired(5);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.takeDamage(-2);
+	test.takeDamage(-2);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.takeDamage(5);
+	test.takeDamage(5);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.takeDamage(50);
+	test.takeDamage(50);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.attack("Enemy 4");
+	test.attack("Enemy 4");
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.attack("Enemy 5");
+	test.attack("Enemy 5");
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.beRepaired(34);
+	test.beRepaired(34);
 	return (0);
 }
