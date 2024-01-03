@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:20:37 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/03 11:08:53 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:12:04 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,37 @@
 
 int	main(void)
 {
-	ScavTrap mod3("Gladiator");
-	mod3.attack("Enemy 1");
+	ScavTrap test("Gladiator");
+	test.attack("Enemy 1");
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.attack("Enemy 2");
+	test.attack("Enemy 2");
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.takeDamage(3);
+	test.takeDamage(3);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.attack("Enemy 3");
+	test.attack("Enemy 3");
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.takeDamage(2);
+	test.takeDamage(2);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.beRepaired(5);
+	test.beRepaired(5);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.takeDamage(-2);
+	test.takeDamage(-2);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.takeDamage(5);
+	test.takeDamage(5);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.takeDamage(50);
+	test.takeDamage(50);
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.guardGate();
+	test.guardGate();
 
 	printMessage("----------------------------------------------------------------", 90);
-	mod3.beRepaired(10);
+	test.beRepaired(10);
 	return (0);
 }
