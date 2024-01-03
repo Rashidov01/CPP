@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 14:17:27 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/02 20:11:01 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/03 19:19:48 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	printMessage(const std::string &message, int colorCode)
 
 ClapTrap::ClapTrap(void)
 {
-	printMessage("Default constructor called");
+	printMessage("ClapTrap default constructor called");
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10),

@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 14:16:49 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/02 19:58:49 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/03 19:28:27 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	printMessage("ScavTrap is born!", 90);
 	this->_name = name;
-	if (this->_name.empty())
-		this->_name = "NO NAME";
+	if (this->_name.length())
+		this->_name = "NO NAME ScavTrap";
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
@@ -76,7 +76,9 @@ void ScavTrap::attack(const std::string &target)
 	}
 	this->_energyPoints -= 1;
 	if (target.length())
-		printMessage("ScavTrap " + this->_name + " attacks " + target + ", causing " + intToString(this->_attackDamage) + " points of demage!", 31);
+		printMessage("ScavTrap " + this->_name + " attacks " + target + ",
+			causing " + intToString(this->_attackDamage) + " points of demage!",
+			31);
 	else
 		printMessage("Target not set", 31);
 }
