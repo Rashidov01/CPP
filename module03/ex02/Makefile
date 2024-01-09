@@ -6,7 +6,7 @@
 #    By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/06 11:47:48 by arashido          #+#    #+#              #
-#    Updated: 2024/01/06 11:47:50 by arashido         ###   ########.fr        #
+#    Updated: 2024/01/09 15:11:47 by arashido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = main
 
 SRCS = $(wildcard *.cpp)
-OBJS = $(SRCS:.cpp=.o)
+OBJDIR = obj
+OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
 # colors
 GREEN = \033[92m
@@ -26,17 +27,20 @@ RESET = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJDIR) $(OBJS)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@printf "$(GREEN)$(NAME)$(RESET)$(YELLOW) is ready to use!$(RESET)\n"
 
-%.o: %.cpp
+$(OBJDIR)/%.o: %.cpp
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 	@printf "$(GRAY)Compiled $< into $@$(RESET)\n"
 
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
+
 clean:
-	@rm -f $(OBJS)
-	@printf "$(GRAY)$(NAME)$(RESET)$(YELLOW) object files have been deleted!$(RESET)\n"
+	@rm -rf $(OBJDIR)
+	@printf "$(GRAY)$(OBJDIR)$(RESET)$(YELLOW) folder has been deleted!$(RESET)\n"
 
 fclean: clean
 	@rm -f $(NAME)
