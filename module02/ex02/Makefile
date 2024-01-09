@@ -6,7 +6,7 @@
 #    By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/28 11:42:36 by arashido          #+#    #+#              #
-#    Updated: 2024/01/09 15:12:22 by arashido         ###   ########.fr        #
+#    Updated: 2024/01/09 15:20:01 by arashido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,22 +29,22 @@ all: $(NAME)
 
 $(NAME): $(OBJDIR) $(OBJS)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
-	@printf "$(GREEN)$(NAME)$(RESET)$(YELLOW) is ready to use!$(RESET)\n"
+	@echo "$(GREEN)$(NAME)$(RESET)$(YELLOW) is ready to use!$(RESET)"
 
 $(OBJDIR)/%.o: %.cpp
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
-	@printf "$(GRAY)Compiled $< into $@$(RESET)\n"
+	@echo "$(GRAY)Compiled $< into $@$(RESET)"
 
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
 
 clean:
 	@rm -rf $(OBJDIR)
-	@printf "$(GRAY)$(OBJDIR)$(RESET)$(YELLOW) folder has been deleted!$(RESET)\n"
+	@echo "$(GRAY)$(OBJDIR)$(RESET)$(YELLOW) folder has been deleted!$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@printf "$(GRAY)$(NAME)$(RESET)$(YELLOW) has been deleted!$(RESET)\n"
+	@echo "$(GRAY)$(NAME)$(RESET)$(YELLOW) has been deleted!$(RESET)"
 
 re: fclean all
 

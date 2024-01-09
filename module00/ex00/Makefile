@@ -6,7 +6,7 @@
 #    By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 08:45:03 by arashido          #+#    #+#              #
-#    Updated: 2024/01/02 18:44:10 by arashido         ###   ########.fr        #
+#    Updated: 2024/01/09 15:20:01 by arashido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,19 +28,19 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CC) $(CXXFLAGS) $(OBJS) -o $(NAME)
-	@printf "$(GREEN)$(NAME)$(RESET)$(YELLOW) is ready to use!$(RESET)\n"
+	@echo "$(GREEN)$(NAME)$(RESET)$(YELLOW) is ready to use!$(RESET)"
 
 %.o: %.cpp
 	@$(CC) $(CXXFLAGS) -c $< -o $@
-	@printf "$(GRAY)Compiled $< into $@$(RESET)\n"
+	@echo "$(GRAY)Compiled $< into $@$(RESET)"
 
 clean:
 	@rm -f $(OBJS)
-	@printf "$(GRAY)$(NAME)$(RESET)$(YELLOW) object files have been deleted!$(RESET)\n"
+	@echo "$(GRAY)$(NAME)$(RESET)$(YELLOW) object files have been deleted!$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@printf "$(GRAY)$(NAME)$(RESET)$(YELLOW) has been deleted!$(RESET)\n"
+	@echo "$(GRAY)$(NAME)$(RESET)$(YELLOW) has been deleted!$(RESET)"
 
 re: fclean all
 
