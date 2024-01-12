@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cat.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 12:16:25 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/06 16:25:45 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:59:01 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat : public Animal
 	Cat();
 	~Cat();
 	Cat(const Cat &obj);
-	Cat &operator=(Cat const &rhs);
+	Cat &operator=(const Cat &rhs);
 
 	void makeSound() const;
 	std::string getType() const;

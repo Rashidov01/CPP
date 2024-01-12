@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.hpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 11:49:24 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/06 18:48:50 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:01:02 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Animal
 
   public:
 	Animal();
-	Animal(std::string type);
+	Animal(std::string name);
 	Animal(const Animal &);
 	Animal &operator=(const Animal &rhs);
 	virtual ~Animal();

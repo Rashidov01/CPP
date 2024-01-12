@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.cpp                                         :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 11:53:36 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/07 11:10:17 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:36:28 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Animal::Animal(void) : _type("Animal")
 	printMessage("Animal default constructor called", 32);
 }
 
-Animal::Animal(std::string type) : _type(type)
+Animal::Animal(std::string name) : _type(name)
 {
 	printMessage("Animal name constructor called", 32);
 }
@@ -30,7 +30,7 @@ Animal::~Animal(void)
 
 Animal::Animal(const Animal &object)
 {
-	printMessage("Animal copy constructor called", 32);
+	printMessage(this->_type + "Animal copy constructor called", 32);
 	*this = object;
 }
 
@@ -50,7 +50,7 @@ void Animal::makeSound() const
 std::string Animal::getType() const
 {
 	printMessage("Animal getter called", 32);
-	return (this->_type);	
+	return (this->_type);
 }
 
 void	printMessage(const std::string &message, int colorCode)

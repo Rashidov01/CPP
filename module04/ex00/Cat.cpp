@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cat.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 12:33:12 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/08 20:42:22 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:32:06 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ Cat::~Cat()
 
 Cat::Cat(const Cat &obj) : Animal(obj)
 {
-	printMessage("Cat operator overloading called", 35);
+	printMessage("Cat copy constructor called", 35);
 	*this = obj;
 }
 
-Cat &Cat::operator=(Cat const &rhs)
+Cat &Cat::operator=(const Cat &rhs)
 {
 	printMessage("Cat copy assigment called", 35);
 	if (this != &rhs)

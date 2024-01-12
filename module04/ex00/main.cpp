@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:46:17 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/08 20:45:16 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:04:24 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@
 int	main(void)
 {
 	printMessage("-----------------------------------------", 90);
-	const Animal *animal = new Animal();
+	Animal *animal = new Animal();
+	// Animal *animal2 = new Animal();
+	// *animal2 = *animal;
+	// delete animal2;
 	printMessage("-----------------------------------------", 90);
 	const Animal *dog = new Dog();
 	printMessage("-----------------------------------------", 90);
