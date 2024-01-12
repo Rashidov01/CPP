@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 14:16:49 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/03 19:28:27 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:22:41 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,7 @@ void ScavTrap::attack(const std::string &target)
 	}
 	this->_energyPoints -= 1;
 	if (target.length())
-		printMessage("ScavTrap " + this->_name + " attacks " + target + ",
-			causing " + intToString(this->_attackDamage) + " points of demage!",
+		printMessage("ScavTrap " + this->_name + " attacks " + target + ", causing " + intToString(this->_attackDamage) + " points of demage!",
 			31);
 	else
 		printMessage("Target not set", 31);
