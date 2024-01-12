@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:16:57 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/12 18:49:29 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/12 19:48:12 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ Cat &Cat::operator=(const Cat &rhs)
 {
 	printMessage("Cat copy assigment called", 35);
 	if (this != &rhs)
+	{
 		this->_type = rhs._type;
+		this->_brain = new Brain();
+		this->_brain->setIdeas(rhs._brain->getIdeaas());
+	}
 	return (*this);
 }
 

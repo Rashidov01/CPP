@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:51:07 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/12 18:51:24 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/12 19:47:40 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ Dog &Dog::operator=(const Dog &rhs)
 {
 	printMessage("Dog copy assignment called", 36);
 	if (this != &rhs)
+	{
 		this->_type = rhs._type;
+		this->_brain = new Brain();
+		this->_brain->setIdeas(rhs._brain->getIdeaas());
+	}
 	return (*this);
 }
 
