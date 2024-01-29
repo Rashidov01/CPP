@@ -6,16 +6,14 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:43:25 by arashido          #+#    #+#             */
-/*   Updated: 2023/12/24 12:58:45 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:15:25 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void)
+PhoneBook::PhoneBook(void) : _index(0), _maxIndex(0)
 {
-	this->_index = 0;
-	this->_maxIndex = 0;
 	return ;
 }
 
@@ -39,7 +37,7 @@ void PhoneBook::addContact(Contact contact)
 void PhoneBook::printContacts(void)
 {
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
-	std::cout << "|   Index  |First Name| Last Name| Nickname |" << std::endl;
+	std::cout << "|  Index   |First Name| Last Name| Nickname |" << std::endl;
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	for (int i = 0; i < this->_maxIndex; i++)
 	{
