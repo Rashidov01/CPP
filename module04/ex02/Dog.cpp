@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 16:16:57 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/29 08:03:42 by arashido         ###   ########.fr       */
+/*   Created: 2024/01/10 16:51:07 by arashido          #+#    #+#             */
+/*   Updated: 2024/01/29 08:02:51 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 #include <iostream>
 #include <string>
 
-Cat::Cat() : _type("Cat")
+Dog::Dog() : _type("Dog")
 {
 	printMessage("Cat default constructor called", 35);
 	try
@@ -27,20 +27,14 @@ Cat::Cat() : _type("Cat")
 	}
 }
 
-Cat::~Cat()
+Dog::~Dog()
 {
-	printMessage("Cat destructor called", 31);
+	printMessage("Dog destructor called", 31);
 }
 
-Cat::Cat(const Cat &obj) : Animal(obj)
+Dog &Dog::operator=(const Dog &rhs)
 {
-	printMessage("Cat copy constructor called", 35);
-	*this = obj;
-}
-
-Cat &Cat::operator=(const Cat &rhs)
-{
-	printMessage("Cat copy assigment called", 35);
+	printMessage("Dog copy assignment called", 36);
 	if (this != &rhs)
 	{
 		this->_type = rhs._type;
@@ -50,19 +44,25 @@ Cat &Cat::operator=(const Cat &rhs)
 	return (*this);
 }
 
-void Cat::makeSound() const
+Dog::Dog(const Dog &obj) : Animal(obj)
 {
-	std::cout << "\033[0;30mCat makes a sound: \033[0m";
-	printMessage("MEEEEOOOOWWWWW!", 35);
+	printMessage("Dog copy constructor called", 36);
+	*this = obj;
 }
 
-std::string Cat::getType() const
+void Dog::makeSound() const
 {
-	printMessage("Cat getter called", 35);
+	std::cout << "\033[0;30mDog makes a sound: \033[0m";
+	printMessage("BAAAARRRRRKKKK!", 36);
+}
+
+std::string Dog::getType() const
+{
+	printMessage("Dog getter called", 36);
 	return (this->_type);
 }
 
-Brain *Cat::getBrain() const
+Brain *Dog::getBrain() const
 {
 	return (this->_brain);
 }

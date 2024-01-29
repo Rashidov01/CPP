@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:51:07 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/12 19:47:40 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/29 08:03:34 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 #include <iostream>
 #include <string>
 
-Dog::Dog() : _brain(new Brain()), _type("Dog")
+Dog::Dog() : _type("Dog")
 {
-	printMessage("Dog default constructor called", 36);
+	printMessage("Cat default constructor called", 35);
+	try
+	{
+		this->_brain = new Brain();
+	}
+	catch (const std::bad_alloc &e)
+	{
+		std::cout << "Memory allocation failed: " << e.what() << std::endl;
+	}
 }
 
 Dog::~Dog()
