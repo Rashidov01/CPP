@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:49:47 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/09 15:49:20 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/19 21:24:40 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ std::string ft_replace(const std::string &src, const std::string &s1,
 
 int	main(void)
 {
-	std::string src = "world hi";
-	std::string s1 = "hello";
-	std::string s2 = "hi";
+	std::string src = "hi there today I am gonna check your code";
+	std::string s1 = "I am";
+	std::string s2 = "you are";
 	std::string result = ft_replace(src, s1, s2);
 	std::cout << "Result: " << result << std::endl;
 }
