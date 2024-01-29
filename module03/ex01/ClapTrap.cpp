@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 14:17:27 by arashido          #+#    #+#             */
-/*   Updated: 2024/01/03 19:19:48 by arashido         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:05:29 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &object)
 
 void ClapTrap::attack(std::string const &target)
 {
+	printMessage("ClapTrap attack() is called.", 90);
 	if (_energyPoints <= 0)
 		printMessage("ClapTrap" + _name + " is out of energy", 90);
 	printMessage("ClapTrap " + _name + " attacks " + target + ", causing " + intToString(_attackDamage) + " points of demage!", 90);
