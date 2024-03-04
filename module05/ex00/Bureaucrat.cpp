@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:43:40 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/03 23:35:04 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/04 20:47:24 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const &rhs)
 	return (*this);
 }
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs)
+std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &rhs)
 {
 	printMessage("Bureaucrat Copy Assignment Operator << called", Color::Orange);
 	try
@@ -58,14 +58,14 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs)
 		else if (rhs.getGrade() < 1)
 			throw std::exception();
 		else
-			out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
+			COUT << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
 
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "Grade Not In Range" << '\n';
 	}
-	return (out);
+	return (COUT);
 }
 
 Bureaucrat::~Bureaucrat()

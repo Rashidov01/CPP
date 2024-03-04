@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:43:42 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/03 18:51:27 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/04 20:47:35 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ class Bureaucrat
 		void		gradeDecrement();
 };
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs);
+std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &rhs);
 
 #endif

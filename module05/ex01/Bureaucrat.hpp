@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:43:42 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/04 19:39:53 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/04 20:47:44 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ class Bureaucrat
 		void		signForm(Form &form);
 };
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs);
+std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &rhs);
 
 #endif
