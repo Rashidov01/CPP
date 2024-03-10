@@ -6,12 +6,13 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:43:42 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/04 20:47:44 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/10 17:35:24 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
+#define BLUE    "\033[34m"
 
 #include <iostream>
 #include <string>

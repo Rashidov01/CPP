@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:43:40 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/04 20:47:58 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/10 17:35:28 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,11 @@ std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &rhs)
 	{
 		if (rhs.getGrade() > 150)
 			throw std::exception();
-
 		else if (rhs.getGrade() < 1)
 			throw std::exception();
-		else
-			COUT << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
-
+		COUT << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << '\n';
 	}
+
 	catch(const std::exception& e)
 	{
 		std::cerr << "Grade Not In Range" << '\n';
@@ -111,12 +109,12 @@ void Bureaucrat::gradeDecrement() {
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return("Grade Too High");
+	return("Grade Too Low");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return("Grade Too Low");
+	return("Grade Too High");
 }
 
 void	Bureaucrat::signForm(Form &form)
@@ -128,7 +126,6 @@ void	Bureaucrat::signForm(Form &form)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << this->_name << " couldn't sign " << form.getName() <<
-				" because " << e.what() << '\n';
+		std::cerr << BLUE << this->_name << " couldn't sign " << form.getName() << " because " << e.what() << '\n';
 	}
 }

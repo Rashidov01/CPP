@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:17:29 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/04 19:33:41 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/10 18:11:17 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Form::Form(Form const &object):
 	_name(object._name), _isSigned(object._isSigned),
 	_signGrade(object._signGrade), _execGrade(object._execGrade)
 {
-	std::cout << "Form Copy Constructor called" << std::endl;
+	std::cout << "Form Copy Constructor called" << '\n';
 }
 
 Form & Form::operator=(Form const &rhs)
@@ -58,10 +58,10 @@ Form & Form::operator=(Form const &rhs)
 std::ostream &operator<<(std::ostream &out, Form const &rhs)
 {
 	printMessage("Bureaucrat Copy Assignment Operator << called", Color::Orange);
-	out << "Form name: " << rhs.getName() << std::endl;
-	out << "Grade to sign: " << rhs.getSignGrade() << std::endl;
-	out << "Grade to execute: " << rhs.getExecGrade() << std::endl;
-	out << "Signed: " << rhs.getSigned() << std::endl;
+	out << "Form name: " << rhs.getName() << '\n';
+	out << "Grade to sign: " << rhs.getSignGrade() << '\n';
+	out << "Grade to execute: " << rhs.getExecGrade() << '\n';
+	out << "Signed: " << rhs.getSigned();
 	return (out);
 }
 
@@ -100,10 +100,11 @@ std::string Form::getName() const
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return("Grade Too High");
+	return("Grade Too Low");
+
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return("Grade Too Low");
+	return("Grade Too High");
 }
