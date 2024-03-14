@@ -6,47 +6,61 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:43:45 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/10 18:13:02 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:15:33 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int main() {
-	Bureaucrat bureaucrat_1("Test1", 3);
-	printMessage( "--------------------------------------------------");
-	Bureaucrat bureaucrat_2("Test2", 75);
-	printMessage( "--------------------------------------------------");
-	std::cout << bureaucrat_1 << '\n';
-	printMessage( "--------------------------------------------------");
-	std::cout << bureaucrat_2 << '\n';
-	printMessage( "--------------------------------------------------");
-	Form form_1("1. Form", 5, 10);
-	printMessage( "--------------------------------------------------");
-	std::cout << form_1 << '\n';
-	printMessage( "--------------------------------------------------");
-	try {
-		Form form_2("2. Form", 8996, 10);
+int main(void)
+{
+	{
+		try
+		{
+			Form form0("A99", 0, 5);
+			printMessage(form0);
+		}
+		catch(std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+
 	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << '\n';
+
+	printMessage("---------------------------------------");
+
+	{
+		try
+		{
+			Bureaucrat mike("Mike", 15);
+			Form form("B58", 20, 45);
+			printMessage(mike);
+			printMessage(form);
+			mike.signForm(form);
+			std::cout << form << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
-	printMessage( "--------------------------------------------------");
-	try {
-		bureaucrat_1.signForm(form_1);
+
+	printMessage("---------------------------------------");
+
+	{
+		try
+		{
+			Bureaucrat jon("Jon", 21);
+			Form form2("C_303", 20, 45);
+			printMessage(jon);
+			printMessage(form2);
+			jon.signForm(form2);
+			printMessage(form2);
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << '\n';
-	}
-	printMessage( "--------------------------------------------------");
-	printMessage(form_1);
-	printMessage( "--------------------------------------------------");
-	try {
-		bureaucrat_2.signForm(form_1);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << '\n';
-	}
-	printMessage( "--------------------------------------------------");
-	return 0;
+	return (0);
 }

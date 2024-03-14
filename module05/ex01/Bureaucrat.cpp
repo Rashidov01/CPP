@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:43:40 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/10 17:35:28 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:50:58 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
     printMessage("Bureaucrat Name Constructor called", Color::Green);
     try
     {
-        validateGrade(grade);
         this->_grade = grade;
+        validateGrade(grade);
     }
     catch(const std::exception& e)
     {
@@ -53,9 +53,9 @@ std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &rhs)
 	printMessage("Bureaucrat Copy Assignment Operator << called", Color::Orange);
 	try
 	{
-		if (rhs.getGrade() > 150)
+		if (rhs.getGrade() >= 150)
 			throw std::exception();
-		else if (rhs.getGrade() < 1)
+		else if (rhs.getGrade() <= 0)
 			throw std::exception();
 		COUT << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << '\n';
 	}
@@ -83,15 +83,15 @@ std::string Bureaucrat::getName() const
 }
 
 void Bureaucrat::validateGrade(int grade) const {
-    if (grade > 150)
+    if (grade >= 151)
         throw Bureaucrat::GradeTooLowException();
-    else if (grade < 1)
+    else if (grade <= 0)
         throw Bureaucrat::GradeTooHighException();
 }
 
 void Bureaucrat::gradeIncrement() {
     try {
-        validateGrade(this->_grade);
+        validateGrade(this->_grade - 1);
         this->_grade--;
     } catch (const std::exception& e) {
         std::cerr << e.what() << '\n';
@@ -100,7 +100,7 @@ void Bureaucrat::gradeIncrement() {
 
 void Bureaucrat::gradeDecrement() {
     try {
-        validateGrade(this->_grade);
+        validateGrade(this->_grade + 1);;
         this->_grade++;
     } catch (const std::exception& e) {
         std::cerr << e.what() << '\n';

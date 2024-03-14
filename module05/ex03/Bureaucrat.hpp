@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:43:42 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/11 17:42:45 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:46:48 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 #include <iostream>
 #include <string>
 #include "PrintMessage.hpp"
-# include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -49,7 +49,8 @@ class Bureaucrat
 		int			getGrade() const;
 		void		gradeIncrement();
 		void		gradeDecrement();
-		void		signForm(Form &form);
+		void		signAForm(AForm &form);
+		void 		executeForm(AForm const &Aform);
 };
 
 std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &rhs);

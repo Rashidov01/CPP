@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:17:00 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/14 14:49:41 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:49:49 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 # include <iostream>
 # include "Bureaucrat.hpp"
+#include  "PrintMessage.hpp"
 
 class Bureaucrat;
-class Form
+class AForm
 {
 	private:
 		const std::string	_name;
@@ -25,6 +26,7 @@ class Form
 		const int			_signGrade;
 		const int			_execGrade;
 
+  protected:
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -38,18 +40,19 @@ class Form
 		};
 
 	public:
-		Form();
-		Form(std::string name, int _signGrade, int _execGrade);
-		Form(Form const &object);
-		Form & operator=(Form const &rhs);
-		~Form();
+		AForm();
+		AForm(std::string name, int _signGrade, int _execGrade);
+		AForm(AForm const &object);
+		AForm & operator=(AForm const &rhs);
+		~AForm();
 		std::string	getName() const;
 		bool		getSigned() const;
 		int			getSignGrade() const;
 		int			getExecGrade() const;
 		void		beSigned(Bureaucrat const &rhs);
+		virtual void		execute(Bureaucrat const &executor) const = 0;
 };
 
-std::ostream &operator<<(std::ostream &out, Form const &rhs);
+std::ostream &operator<<(std::ostream &out, AForm const &rhs);
 
 #endif
