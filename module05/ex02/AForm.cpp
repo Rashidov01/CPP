@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:17:29 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/14 14:18:52 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:21:30 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ std::ostream &operator<<(std::ostream &out, AForm const &rhs)
 	out << "AForm name: " << rhs.getName() << '\n';
 	out << "Grade to sign: " << rhs.getSignGrade() << '\n';
 	out << "Grade to execute: " << rhs.getExecGrade() << '\n';
-	out << "Signed: " << rhs.getSigned();
+	out << "Signed: " << rhs.getSigned() << '\n';
 	return (out);
 }
 

@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:17:29 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/10 18:11:17 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:21:44 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ Form & Form::operator=(Form const &rhs)
 		const_cast<std::string&>(this->_name) = rhs.getName();
 		const_cast<int&>(this->_signGrade) = rhs.getSignGrade();
 		const_cast<int&>(this->_execGrade) = rhs.getExecGrade();
-		this->_isSigned= rhs.getSigned();
+		this->_isSigned= rhs.getSigned() << '\n';
 	}
 	return(*this);
 }
