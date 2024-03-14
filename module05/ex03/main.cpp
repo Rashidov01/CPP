@@ -5,49 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 14:41:45 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/14 15:06:08 by arashido         ###   ########.fr       */
+/*   Created: 2024/03/14 15:18:22 by arashido          #+#    #+#             */
+/*   Updated: 2024/03/14 15:19:07 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
 	{
-		printMessage("-----------------------------------------------------------");
-		Bureaucrat B("john", 39);
-		printMessage("-----------------------------------------------------------");
-		ShrubberyCreationForm A("target");
-		printMessage("-----------------------------------------------------------");
-		B.signAForm(A);
-		printMessage("-----------------------------------------------------------");
-		B.executeForm(A);
-		printMessage("-----------------------------------------------------------");
-	}
-	{
-		printMessage("-----------------------------------------------------------");
-		Bureaucrat B("john", 19);
-		printMessage("-----------------------------------------------------------");
-		RobotomyRequestForm A("target");
-		printMessage("-----------------------------------------------------------");
-		B.signAForm(A);
-		printMessage("-----------------------------------------------------------");
-		B.executeForm(A);
-		printMessage("-----------------------------------------------------------");
-	}
-	{
-		printMessage("-----------------------------------------------------------");
-		Bureaucrat B("john",3);
-		printMessage("-----------------------------------------------------------");
-		PresidentialPardonForm A("target");
-		printMessage("-----------------------------------------------------------");
-		B.signAForm(A);
-		printMessage("-----------------------------------------------------------");
-		B.executeForm(A);
-		printMessage("-----------------------------------------------------------");
+		std::string formName = "shrubbery creation";
+		std::string formTarget = "Gorms";
+		if (formName.empty() || formTarget.empty())
+		{
+				throw std::invalid_argument("Invalid parameters");
+		}
+		printMessage("---------------------------------------------------------------");
+		Intern intern;
+		printMessage("---------------------------------------------------------------");
+		Bureaucrat bureaucrat("John", 1);
+		printMessage("---------------------------------------------------------------");
+		AForm *f = intern.makeForm(formName, formTarget);
+		printMessage("---------------------------------------------------------------");
+		std::cout << *f;
+		printMessage("---------------------------------------------------------------");
+		bureaucrat.signAForm(*f);
+		printMessage("---------------------------------------------------------------");
+		std::cout << (*f).getSigned() << std::endl;
+		printMessage("---------------------------------------------------------------");
+		bureaucrat.executeForm(*f);
+		printMessage("---------------------------------------------------------------");
+		delete f;
+		printMessage("---------------------------------------------------------------");
 	}
 }
