@@ -3,56 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:17:00 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/14 14:49:49 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:59:12 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
-#define AFORM_HPP
+# define AFORM_HPP
 
-# include <iostream>
 # include "Bureaucrat.hpp"
-#include  "PrintMessage.hpp"
+# include "PrintMessage.hpp"
+# include <iostream>
 
-class Bureaucrat;
+class	Bureaucrat;
 class AForm
 {
-	private:
-		const std::string	_name;
-		bool				_isSigned;
-		const int			_signGrade;
-		const int			_execGrade;
+  private:
+	const std::string _name;
+	bool _isSigned;
+	const int _signGrade;
+	const int _execGrade;
 
   protected:
-		class GradeTooHighException : public std::exception
-		{
-			public:
-				const char *what() const throw();
-		};
+	class GradeTooHighException : public std::exception
+	{
+		public:
+		const char *what() const throw();
+	};
 
-		class GradeTooLowException : public std::exception
-		{
-			public:
-				const char *what() const throw();
-		};
+	class GradeTooLowException : public std::exception
+	{
+		public:
+		const char *what() const throw();
+	};
 
-	public:
-		AForm();
-		AForm(std::string name, int _signGrade, int _execGrade);
-		AForm(AForm const &object);
-		AForm & operator=(AForm const &rhs);
-		~AForm();
-		std::string	getName() const;
-		bool		getSigned() const;
-		int			getSignGrade() const;
-		int			getExecGrade() const;
-		void		beSigned(Bureaucrat const &rhs);
-		virtual void		execute(Bureaucrat const &executor) const = 0;
+  public:
+	AForm();
+	AForm(std::string name, int _signGrade, int _execGrade);
+	AForm(AForm const &object);
+	AForm &operator=(AForm const &rhs);
+	~AForm();
+	std::string getName() const;
+	bool getSigned() const;
+	int getSignGrade() const;
+	int getExecGrade() const;
+	void beSigned(Bureaucrat const &rhs);
+	virtual void execute(Bureaucrat const &executor) const = 0;
 };
 
-std::ostream &operator<<(std::ostream &out, AForm const &rhs);
+std::ostream &operator<<(std::ostream &COUT, AForm const &rhs);
 
 #endif

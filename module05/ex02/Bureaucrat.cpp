@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:43:40 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/14 14:51:40 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:25:00 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &rhs)
 	printMessage("Bureaucrat Copy Assignment Operator << called", Color::Orange);
 	try
 	{
-		if (rhs.getGrade() >= 150)
+		if (rhs.getGrade() >= 151)
 			throw std::exception();
 		else if (rhs.getGrade() <= 0)
 			throw std::exception();

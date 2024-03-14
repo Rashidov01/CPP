@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:17:00 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/14 15:14:39 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:59:12 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ class AForm
 		virtual void		execute(Bureaucrat const &executor) const = 0;
 };
 
-std::ostream &operator<<(std::ostream &out, AForm const &rhs);
+std::ostream &operator<<(std::ostream &COUT, AForm const &rhs);
 
 #endif

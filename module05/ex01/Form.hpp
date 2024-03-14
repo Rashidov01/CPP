@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:17:00 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/14 14:49:41 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:59:12 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ class Form
 		void		beSigned(Bureaucrat const &rhs);
 };
 
-std::ostream &operator<<(std::ostream &out, Form const &rhs);
+std::ostream &operator<<(std::ostream &COUT, Form const &rhs);
 
 #endif

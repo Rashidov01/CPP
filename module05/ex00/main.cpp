@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:43:45 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/14 13:50:04 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:05:20 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	Bureaucrat b("Bob", 0);
+	Bureaucrat b("Bob", 5);
 	// std::cout << b.getGrade() << '\n';
 	std::cout << b << std::endl;
 	b.gradeIncrement();

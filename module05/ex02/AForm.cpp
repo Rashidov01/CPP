@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:17:29 by arashido          #+#    #+#             */
-/*   Updated: 2024/03/14 15:21:30 by arashido         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:59:45 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ AForm & AForm::operator=(AForm const &rhs)
 	return(*this);
 }
 
-std::ostream &operator<<(std::ostream &out, AForm const &rhs)
+std::ostream &operator<<(std::ostream &COUT, AForm const &rhs)
 {
 	printMessage("Bureaucrat Copy Assignment Operator << called", Color::Orange);
-	out << "AForm name: " << rhs.getName() << '\n';
-	out << "Grade to sign: " << rhs.getSignGrade() << '\n';
-	out << "Grade to execute: " << rhs.getExecGrade() << '\n';
-	out << "Signed: " << rhs.getSigned() << '\n';
-	return (out);
+	COUT << "AForm name: " << rhs.getName() << '\n';
+	COUT << "Grade to sign: " << rhs.getSignGrade() << '\n';
+	COUT << "Grade to execute: " << rhs.getExecGrade() << '\n';
+	COUT << "Signed: " << rhs.getSigned() << '\n';
+	return (COUT);
 }
 
 AForm::~AForm()
