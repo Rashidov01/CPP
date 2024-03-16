@@ -7,8 +7,8 @@
 # include <stdint.h>
 struct Data
 {
-	std::string	s;
-	int			n;
+	std::string	name;
+	int			age;
 };
 
 class Serialize
