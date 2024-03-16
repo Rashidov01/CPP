@@ -1,6 +1,6 @@
 #include "Serialize.hpp"
 
-int main()
+int	main(void)
 {
 	Data data;
 	data.name = "arashido";

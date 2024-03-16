@@ -1,27 +1,27 @@
 #ifndef SERIALIZE_HPP
-#define SERIALIZE_HPP
+# define SERIALIZE_HPP
 
-# include <iostream>
-# include <string>
 # include <cstdlib>
+# include <iostream>
 # include <stdint.h>
-struct Data
+# include <string>
+struct	Data
 {
-	std::string	name;
-	int			age;
+	std::string name;
+	int	age;
 };
 
 class Serialize
 {
-	private:
-		Serialize();
-		Serialize(Serialize const &object);
-		Serialize & operator=(Serialize const &rhs);
+  private:
+	Serialize();
+	Serialize(Serialize const &object);
+	Serialize &operator=(Serialize const &rhs);
 
-	public:
-		~Serialize();
-		static uintptr_t	serialize(Data *ptr);
-		static Data *deserialize(uintptr_t raw);
+  public:
+	~Serialize();
+	static uintptr_t serialize(Data *ptr);
+	static Data *deserialize(uintptr_t raw);
 };
 
 #endif
