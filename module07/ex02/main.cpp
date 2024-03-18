@@ -10,7 +10,15 @@ int	main(void)
 
 	Array<int> arr2 = arr1;
 
-	arr1[0] = 100;
+    try {
+        arr1[6] = 100;
+        std::cout << "index accepted!!" << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+        exit(1);
+    }
 
 	std::cout << "arr1 elements:";
 	for (unsigned int i = 0; i < arr1.size(); ++i)

@@ -48,13 +48,11 @@ class Array
 		delete[] elements;
 	}
 
-	T &operator[](unsigned int index)
+	T &operator[](unsigned int n)
 	{
-		if (index >= length)
-		{
-			throw std::out_of_range("Index out of range");
-		}
-		return (elements[index]);
+		if (n < 0 || n >= length)
+			throw std::runtime_error("Index out of bound");
+		return (elements[n]);
 	}
 
 	size_t size() const
