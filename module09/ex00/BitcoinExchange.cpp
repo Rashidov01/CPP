@@ -81,21 +81,24 @@ bool BitcoinExchange::isValidDate(std::string &dateStr) {
 double BitcoinExchange::lowerBound(std::string& dataStr)
 {
   std::map<std::string, double>::iterator it = _btcdata.lower_bound(dataStr);
-  if (it->first >= dataStr && it != _btcdata.begin())
-    it--;
+  if (it != _btcdata.begin())
+  {
+    if (it->first != dataStr)
+      it--;
+  }
   return (it->second);
 }
 
 void BitcoinExchange::infileRead(const std::string& infile) {
-  std::ifstream input_file(infile.c_str());
-  if (!input_file.is_open())
+  std::ifstream inputFile(infile.c_str());
+  if (!inputFile.is_open())
   {
     std::cerr << "Error: could not open input file." << std::endl;
     std::exit(1);
   }
 
   std::string line;
-  while (std::getline(input_file, line))
+  while (std::getline(inputFile, line))
   {
     if (line == "date | value") {
         continue;
@@ -103,16 +106,21 @@ void BitcoinExchange::infileRead(const std::string& infile) {
     size_t delimiterPos = line.find('|');
     if (delimiterPos != std::string::npos)
     {
-      std::string date_str = line.substr(0, delimiterPos);
-      std::string value_str = line.substr(delimiterPos + 1);
+      std::string dataStr = line.substr(0, delimiterPos);
+      std::string valueStr = line.substr(delimiterPos + 1);
 
       try {
-        if (!isValidDate(date_str))
+        if (!isValidDate(dataStr))
         {
-          std::cerr << "Error: invalid date " << "=> " << date_str << std::endl;
+          std::cerr << "Error: invalid date " << "=> " << dataStr << std::endl;
           continue;
         }
-        double value = std::strtod(value_str.c_str(), NULL);
+        if (dataStr > "2022-03-29 " || dataStr < "2009-01-02 ")
+				{
+					std::cout << dataStr << " Error: date out of range." << std::endl;
+					continue;
+				}
+        double value = std::strtod(valueStr.c_str(), NULL);
         if (value < 0) {
           std::cerr << "Error: not a positive number!" << std::endl;
           continue;
@@ -122,9 +130,9 @@ void BitcoinExchange::infileRead(const std::string& infile) {
           std::cerr << "Error: too large a number!" << std::endl;
           continue;
         }
-        double exchange_rate = lowerBound(date_str);
+        double exchange_rate = lowerBound(dataStr);
         double calculated_value = value * exchange_rate;
-        std::cout << date_str << " => " << value << " = " << calculated_value << std::endl;
+        std::cout << dataStr << " => " << value << " = " << calculated_value << std::endl;
       }
       catch (...)
       {
@@ -136,5 +144,5 @@ void BitcoinExchange::infileRead(const std::string& infile) {
       std::cerr << "Error: Invalid delimeter " << line << std::endl;
     }
   }
-  input_file.close();
+  inputFile.close();
 }

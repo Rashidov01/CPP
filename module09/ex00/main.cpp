@@ -6,6 +6,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    std::cout << std::fixed << std::setprecision(2);
+
     BitcoinExchange exchange("data.csv");
     exchange.infileRead(argv[1]);
 
