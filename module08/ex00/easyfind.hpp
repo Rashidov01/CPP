@@ -4,9 +4,9 @@
 #include <iostream>
 
 template< typename T>
-int	easyfind(T &container, int n)
+int	easyfind(T &container, int target)
 {
-	typename T::iterator it = std::find(container.begin(), container.end(), n);
+	typename T::iterator it = std::find(container.begin(), container.end(), target);
 	if (it == container.end())
 		throw std::runtime_error("Element not found");
 	return *it;
