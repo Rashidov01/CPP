@@ -117,7 +117,7 @@ void BitcoinExchange::infileRead(const std::string& infile) {
           std::cerr << "Error: not a positive number!" << std::endl;
           continue;
         }
-        if (value > 1000)
+        if (value >= 1000)
         {
           std::cerr << "Error: too large a number!" << std::endl;
           continue;
