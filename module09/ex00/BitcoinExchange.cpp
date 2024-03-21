@@ -130,9 +130,9 @@ void BitcoinExchange::infileRead(const std::string& infile) {
           std::cerr << "Error: too large a number!" << std::endl;
           continue;
         }
-        double exchange_rate = lowerBound(dataStr);
-        double calculated_value = value * exchange_rate;
-        std::cout << dataStr << " => " << value << " = " << calculated_value << std::endl;
+        double exchangeRate = lowerBound(dataStr);
+        double calculateValue = value * exchangeRate;
+        std::cout << dataStr << " => " << value << " = " << calculateValue << std::endl;
       }
       catch (...)
       {
