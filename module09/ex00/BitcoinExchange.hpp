@@ -28,6 +28,7 @@ public:
   BitcoinExchange &operator=(const BitcoinExchange &rhs);
   void infileRead(const std::string &infile);
   bool readData(const std::string &path);
+  int	validateInputValue(std::string &line, std::string &value);
 
 };
 

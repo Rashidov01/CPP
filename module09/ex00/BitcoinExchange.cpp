@@ -116,6 +116,39 @@ double BitcoinExchange::lowerBound(std::string &dataStr)
 	return (it->second);
 }
 
+int	BitcoinExchange::validateInputValue(std::string &line, std::string &value)
+{
+	if (value.empty())
+		return (0);
+	if (value[0] != ' ')
+	{
+		std::cout << "Error: bad input" << " => {" << line << "}" << std::endl;
+		return (0);
+	}
+	if (value[1] == '-')
+	{
+		if (std::isdigit(value[2]))
+			std::cout << "Error: not a positive number." << std::endl;
+		else
+			std::cout << "Error: bad input" << " => {" << line << "}" << std::endl;
+		return (0);
+	}
+	for (int i = 1; i < (int)value.size(); i++)
+	{
+		if (value[i] != '.' && !std::isdigit(value[i]))
+		{
+			std::cout << "Error: bad input" << " => {" << line << "}" << std::endl;
+			return (0);
+		}
+	}
+	if (std::count(value.begin(), value.end(), '.') > 1)
+	{
+		std::cout << "Error: bad value" << " => {" << value << "}" << std::endl;
+		return (0);
+	}
+	return (1);
+}
+
 void BitcoinExchange::infileRead(const std::string &infile)
 {
 	std::ifstream inputFile(infile.c_str());
@@ -126,17 +159,22 @@ void BitcoinExchange::infileRead(const std::string &infile)
 	}
 
 	std::string line;
+	std::getline(inputFile, line);
+	if (line != "date | value")
+	{
+		std::cerr << "Invalid Infile Header" << '\n';
+		exit(1);
+	}
 	while (std::getline(inputFile, line))
 	{
-		if (line == "date | value")
-		{
-			continue ;
-		}
+
 		size_t delimiterPos = line.find('|');
 		if (delimiterPos != std::string::npos)
 		{
 			std::string dateStr = line.substr(0, delimiterPos);
 			std::string valueStr = line.substr(delimiterPos + 1);
+			if (validateInputValue(line, valueStr) == 0)
+				exit(1);
 
 			try
 			{
