@@ -87,8 +87,16 @@ void RPN::fillStack(std::string expr)
 				this->_rpnNum.push(expr[i] - '0');
 			else
 				this->_rpnStack.push(expr[i]);
-			if (this->_rpnStack.size() == 1 && this->_rpnNum.size() >= 2)
+
+			if (this->_rpnStack.size() == 1)
+			{
+				if (this->_rpnNum.size() < 2)
+				{
+					std::cerr << "Invalid Expression" << std::endl;
+					exit(1);
+				}
 				calculate();
+			}
 		}
 	}
 }
