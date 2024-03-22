@@ -7,6 +7,6 @@ int main(int ac, char const *av[])
     PmergeMe sort(av);
     sort.vectorSort();
     sort.listSort();
-    sort.routine();
+    sort.output();
     return 0;
 }

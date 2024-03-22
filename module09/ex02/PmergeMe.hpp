@@ -35,7 +35,7 @@ class PmergeMe
     // sorting functions
     void vectorSort();
     void listSort();
-    void routine();
+    void output();
 };
 
 #endif

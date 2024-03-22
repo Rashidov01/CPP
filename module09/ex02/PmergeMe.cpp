@@ -160,7 +160,7 @@ void PmergeMe::listSort()
 	this->_listSortTime = static_cast<double>((end - startTime) * 100.0 / CLOCKS_PER_SEC);
 }
 
-void PmergeMe::routine()
+void PmergeMe::output()
 {
   std::cout << "Before Sorting : ";
   for(std::vector<int>::iterator it = this->_vecUnsorted.begin(); it !=_vecUnsorted.end(); it++)
