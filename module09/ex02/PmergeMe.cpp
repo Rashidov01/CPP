@@ -51,9 +51,9 @@ PmergeMe::~PmergeMe()
 
 void PmergeMe::vectorSort()
 {
-	clock_t	time;
+	clock_t	startTime;
 
-	time = clock();
+	startTime = clock();
 	for (size_t i = 0; i < this->_listUnsorted.size(); i++)
 	{
 		if (i == 0 && this->_vecUnsorted.size() % 2)
@@ -96,13 +96,15 @@ void PmergeMe::vectorSort()
 		itSort = std::lower_bound(_vecSorted.begin(), _vecSorted.end(), it->second);
 		this->_vecSorted.insert(itSort, it->second);
 	}
-	this->_vecSortTime = static_cast<double>((clock() - time) * 100.0 / CLOCKS_PER_SEC);
+	this->_vecSortTime = static_cast<double>((clock() - startTime) * 100.0 / CLOCKS_PER_SEC);
 }
 
 // List Sort
 void PmergeMe::listSort()
 {
-	clock_t time = clock();
+	clock_t startTime;
+
+  startTime = clock();
 
 	for (std::list<int>::iterator it = this->_listUnsorted.begin(); it != this->_listUnsorted.end(); it++)
 	{
@@ -155,7 +157,7 @@ void PmergeMe::listSort()
 
 	clock_t end = clock();
 
-	this->_listSortTime = static_cast<double>((end - time) * 100.0 / CLOCKS_PER_SEC);
+	this->_listSortTime = static_cast<double>((end - startTime) * 100.0 / CLOCKS_PER_SEC);
 }
 
 void PmergeMe::routine()
