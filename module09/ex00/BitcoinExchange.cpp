@@ -106,18 +106,18 @@ void BitcoinExchange::infileRead(const std::string& infile) {
     size_t delimiterPos = line.find('|');
     if (delimiterPos != std::string::npos)
     {
-      std::string dataStr = line.substr(0, delimiterPos);
+      std::string dateStr = line.substr(0, delimiterPos);
       std::string valueStr = line.substr(delimiterPos + 1);
 
       try {
-        if (!isValidDate(dataStr))
+        if (!isValidDate(dateStr))
         {
-          std::cerr << "Error: invalid date " << "=> " << dataStr << std::endl;
+          std::cerr << "Error: invalid date " << "=> " << dateStr << std::endl;
           continue;
         }
-        if (dataStr > "2022-03-29 " || dataStr < "2009-01-02 ")
+        if (dateStr > "2022-03-29 " || dateStr < "2009-01-02 ")
 				{
-					std::cout << dataStr << " Error: date out of range." << std::endl;
+					std::cout << dateStr << " Error: date out of range." << std::endl;
 					continue;
 				}
         double value = std::strtod(valueStr.c_str(), NULL);
@@ -130,9 +130,9 @@ void BitcoinExchange::infileRead(const std::string& infile) {
           std::cerr << "Error: too large a number!" << std::endl;
           continue;
         }
-        double exchangeRate = lowerBound(dataStr);
+        double exchangeRate = lowerBound(dateStr);
         double calculateValue = value * exchangeRate;
-        std::cout << dataStr << " => " << value << " = " << calculateValue << std::endl;
+        std::cout << dateStr << " => " << value << " = " << calculateValue << std::endl;
       }
       catch (...)
       {
