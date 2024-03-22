@@ -22,14 +22,8 @@ int main(int argc, char **argv)
         if (is_valid(argv[1]) && has_operator(argv[1]))
             RPN reverse_polish_notation(argv[1]);
         else
-        {
-            std::cout << "Invalid Expression:" << std::endl;
-            std::cout << "Use numbers and arithemitic operators" << std::endl;
-        }
+            std::cout << "Error" << '\n';
     }
     else
-    {
-        std::cout << "Error" << std::endl;
-        std::cout << "usage: ./RPN <expression>" << std::endl;
-    }
+        std::cout << "Error usage: ./RPN <expression>" << '\n';
 }

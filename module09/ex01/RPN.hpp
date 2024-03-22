@@ -9,9 +9,9 @@ class RPN
 {
   private:
     std::string _rpn;
-    std::stack<char> _rpn_stack;
-    std::stack<int> _rpn_num;
-    bool _div_zero;
+    std::stack<char> _rpnStack;
+    std::stack<int> _rpnNum;
+    bool _devideZero;
 
     void fillStack(std::string expr);
     void calculate();
