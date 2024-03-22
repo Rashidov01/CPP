@@ -17,6 +17,7 @@ private:
   std::map<std::string, double> _btcdata;
   bool isLeapYear(int year);
   bool isValidDate(std::string &dateStr);
+  bool isValidDateStr(std::string &dateStr);
   double lowerBound(std::string& dataStr);
 
 public:
