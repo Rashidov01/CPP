@@ -1,20 +1,35 @@
 #include "RPN.hpp"
 
-int main(int ac, char **av) {
-    if (ac != 2) {
-      std::cerr << "Usage: " << av[0] << " <RPN expression>" << '\n';
-        return 1;
-    }
+bool has_operator(std::string str)
+{
+    if (str.find('+') == std::string::npos && str.find('/') == std::string::npos
+        && str.find('-') == std::string::npos && str.find('*') == std::string::npos)
+        return (0);
+    return (1);
+}
 
-    RPN calculator;
-    try {
-        int result = calculator.evaluate(av[1]);
-        if (result != -1) {
-            std::cout << "Result: " << result << std::endl;
+bool is_valid(std::string str)
+{
+	if (str.find_first_not_of("0123456789+/*- ") == std::string::npos)
+		return (true);
+	return (false);
+}
+
+int main(int argc, char **argv)
+{
+    if (argc == 2)
+    {
+        if (is_valid(argv[1]) && has_operator(argv[1]))
+            RPN reverse_polish_notation(argv[1]);
+        else
+        {
+            std::cout << "Invalid Expression:" << std::endl;
+            std::cout << "Use numbers and arithemitic operators" << std::endl;
         }
-    } catch (const std::runtime_error& e) {
-        std::cerr << e.what() << std::endl;
-        return 1;
     }
-    return 0;
+    else
+    {
+        std::cout << "Error" << std::endl;
+        std::cout << "usage: ./RPN <expression>" << std::endl;
+    }
 }

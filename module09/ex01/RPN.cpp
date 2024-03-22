@@ -1,73 +1,81 @@
 #include "RPN.hpp"
 
-RPN::RPN(){}
-
-RPN::~RPN(){}
-
-int RPN::evaluate(const std::string &expression)
+RPN::RPN()
 {
-  std::string token;
-  for (size_t i = 0; i < expression.size(); ++i)
-  {
-    if (isspace(expression[i]))
-      continue;
-    if (isdigit(expression[i]))
-    {
-      size_t j = i;
-      while (j < expression.size() && isdigit(expression[j]))
-        ++j;
-      token = expression.substr(i, j - i);
-      this->numbers.push(atoi(token.c_str()));
-      i = j - 1;
-    }
-    else if (isOperator(expression[i]))
-    {
-      if (numbers.size() < 2) {
-          std::cerr << "Error: Not enough operands for operator " << std::endl;
-          return -1;
-      }
-      int operand2 = numbers.top();
-      numbers.pop();
-      int operand1 = numbers.top();
-      numbers.pop();
-      int result = calculate(operand1, operand2, expression[i]);
-      numbers.push(result);
-    }
-    else
-    {
-      std::cerr << "Error: Invalid token " << expression[i] << std::endl;
-      return -1;
-    }
-  }
-  if (numbers.size() != 1)
-  {
-    std::cerr << "Error: Invalid expression" << std::endl;
-    return -1;
-  }
-  return numbers.top();
 }
 
-bool RPN::isOperator(char c) const
+RPN::RPN(std::string argv)
 {
-  return c == '+' || c == '-' || c == '*' || c == '/';
+	this->_div_zero = true;
+	if (argv.size() > 3)
+	{
+		this->fillStack(argv);
+		if (_div_zero == false)
+		{
+			std::cout << "Dividing by zero" << std::endl;
+			return ;
+		}
+		std::cout << this->_rpn_num.top() << std::endl;
+	}
 }
 
-int RPN::calculate(int operand1, int operand2, char op) const
+RPN::RPN(const RPN &object)
 {
-  switch (op)
-  {
-    case '+':
-        return operand1 + operand2;
-    case '-':
-        return operand1 - operand2;
-    case '*':
-        return operand1 * operand2;
-    case '/':
-      if (operand2 == 0) {
-          throw std::runtime_error("Error: Division by zero");
-      }
-      return operand1 / operand2;
-    default:
-      return 0;
-  }
+	*this = object;
+}
+
+RPN &RPN::operator=(const RPN &rhs)
+{
+	if (this != &rhs)
+	{
+		this->_rpn_stack = rhs._rpn_stack;
+		this->_rpn_num = rhs._rpn_num;
+	}
+	return (*this);
+}
+
+RPN::~RPN()
+{
+}
+
+void RPN::calculate()
+{
+	char	operation;
+
+	int operand1, operand2;
+	operand2 = this->_rpn_num.top();
+	this->_rpn_num.pop();
+	operand1 = this->_rpn_num.top();
+	this->_rpn_num.pop();
+	operation = this->_rpn_stack.top();
+	this->_rpn_stack.pop();
+	if (operation == '/' && operand2 == 0)
+		this->_div_zero = false;
+	if (operation == '*')
+		this->_rpn_num.push(operand1 * operand2);
+	else if (operation == '/' && operand2 != 0)
+		this->_rpn_num.push(operand1 / operand2);
+	else if (operation == '-')
+		this->_rpn_num.push(operand1 - operand2);
+	else if (operation == '+')
+		this->_rpn_num.push(operand1 + operand2);
+}
+
+void RPN::fillStack(std::string expr)
+{
+	int expr_size;
+
+	expr_size = expr.size();
+	for (int i = 0; i < expr_size; i++)
+	{
+		if (expr[i] != ' ')
+		{
+			if (isdigit(expr[i]) != 0)
+				this->_rpn_num.push(expr[i] - '0');
+			else
+				this->_rpn_stack.push(expr[i]);
+			if (this->_rpn_stack.size() == 1 && this->_rpn_num.size() >= 2)
+				calculate();
+		}
+	}
 }

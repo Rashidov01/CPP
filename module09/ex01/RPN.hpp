@@ -1,21 +1,27 @@
 #ifndef RPN_HPP
-#define RPN_HPP
+# define RPN_HPP
 
-#include <iostream>
-#include <stack>
-#include <cstdlib>
-#include <cctype>
-#include <stdbool.h>
+# include <iostream>
+# include <stack>
+# include <string>
 
-class RPN {
+class RPN
+{
   private:
-    std::stack<int> numbers;
+    std::string _rpn;
+    std::stack<char> _rpn_stack;
+    std::stack<int> _rpn_num;
+    bool _div_zero;
+
+    void fillStack(std::string expr);
+    void calculate();
+
   public:
     RPN();
+    RPN(std::string argv);
+    RPN(const RPN &object);
+    RPN &operator=(const RPN &rhs);
     ~RPN();
-    int evaluate(const std::string &expression);
-    bool isOperator(char c) const;
-    int calculate(int operand1, int operand2, char op) const;
 };
 
 #endif
