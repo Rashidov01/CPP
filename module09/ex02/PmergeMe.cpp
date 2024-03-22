@@ -104,7 +104,7 @@ void PmergeMe::listSort()
 {
 	clock_t startTime;
 
-  startTime = clock();
+  	startTime = clock();
 
 	for (std::list<int>::iterator it = this->_listUnsorted.begin(); it != this->_listUnsorted.end(); it++)
 	{
